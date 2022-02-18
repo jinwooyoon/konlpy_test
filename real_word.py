@@ -1,16 +1,9 @@
 #%%
 from wordcloud import WordCloud
-import matplotlib.pyplot as plt
 from collections import Counter
 from konlpy.tag import Okt
-from PIL import Image
-import numpy as np
 import pandas as pd
 import matplotlib
-from IPython.display import set_matplotlib_formats 
-from konlpy.tag  import Twitter 
-import tqdm
-
 import operator
 
 
@@ -24,6 +17,7 @@ finish_cnt = 1
 result_word = []
 
 del_word = ['영화','정말','우리','진짜','지금','대해','보고','놀란']
+
 while True:
     text = df['text'][start:end].tolist()
 
@@ -41,8 +35,6 @@ while True:
     result = sorted(c.items(), key=lambda x: x[1],reverse=True)
 
     for cnt in result:
-        # if '영화' == cnt[0] or '정말' == cnt[0] or '우리' == cnt[0] or '진짜' ==cnt[0] or :
-        #     pass
         
         if any([cnt[0]== x for x in del_word]):
             pass
